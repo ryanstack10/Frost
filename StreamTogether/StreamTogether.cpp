@@ -1,8 +1,9 @@
 // StreamTogether.cpp : Defines the entry point for the application.
 //
-
+#include <SFML/Graphics.hpp>
 #include "framework.h"
 #include "StreamTogether.h"
+
 
 #define MAX_LOADSTRING 100
 
@@ -42,9 +43,25 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     MSG msg;
 
+	sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
+	sf::CircleShape shape(100.f);
+	shape.setFillColor(sf::Color::Green);
+
     // Main message loop:
     while (GetMessage(&msg, nullptr, 0, 0))
     {
+
+		sf::Event event;
+		while (window.pollEvent(event))
+		{
+			if (event.type == sf::Event::Closed)
+				window.close();
+		}
+
+		window.clear();
+		window.draw(shape);
+		window.display();
+
         if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
         {
             TranslateMessage(&msg);
