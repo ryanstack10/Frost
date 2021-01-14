@@ -169,6 +169,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source.cpp" />
     <ClCompile Include="StreamTogether.cpp" />
   </ItemGroup>
   <ItemGroup>
